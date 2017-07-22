@@ -15,12 +15,23 @@ fun main(args: Array<String>) {
 //    loops()
 
     //使用when
-    println("hello: ${describe("hello")}")
-    println("1: ${describe(1)}")
-    println("12:${describe(12)}")  //WHY?  12:this is not String type
-    println("1234L: ${describe(220L)}")
-    println("other: ${describe("other232323")}")
-    println("13.6: ${describe(13.6)}")
+//    println("hello: ${describe("hello")}")
+//    println("1: ${describe(1)}")
+//    println("12:${describe(12)}")  //WHY?  12:this is not String type
+//    println("1234L: ${describe(220L)}")
+//    println("other: ${describe("other232323")}")
+//    println("13.6: ${describe(13.6)}")
+
+
+    //range
+//    isRange(12)
+
+    //迭代
+//    iterationItems()
+//    iterationCollection()
+
+    //循环map
+    printMap()
 }
 
 // 字符串模板
@@ -73,3 +84,47 @@ fun describe(obj: Any): String =
             !is String -> "this is not String type"
             else -> "nothing"
         }
+
+//使用range:检查数值是否在某个范围内
+fun isRange(a: Int) {
+    val b = 10
+    if (a in 1..b) {
+        println("a: $a is in the range!")
+    } else {
+        println("a: $a is't in the range!")
+    }
+}
+
+//在范围内迭代
+fun iterationItems() {
+
+    //迭代 使用step 每次迭代都加上step值
+    for (x in 1..10 step 2) {
+        println(x)
+    }
+
+    for (x in 9 downTo 0 step 2) {
+        println("downTo: $x")
+    }
+
+}
+
+//集合迭代 TODO why?
+fun iterationCollection() {
+    val list = listOf("apple", "orange", "tomato")
+    when {
+        "orange" in list -> println("i like eat orange~")
+        "apple123" in list -> println("my iPhone is design by apple")
+        "tomato33" in list -> println("i don't like tomato!")
+        else -> println("nothing")
+    }
+}
+
+//定义map: 其中“a” 为key，1为value
+fun printMap(){
+    val mapValue = mapOf("a" to 1,"b" to 2,"c" to 3)
+
+    for((k,v) in mapValue){
+        println("$k --> $v")
+    }
+}
